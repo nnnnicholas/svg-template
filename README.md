@@ -1,4 +1,4 @@
-# juice-svg-template
+# svg-template
 Template for creating onchain SVGs
 
 ## Usage
