@@ -1,13 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-import {Base64} from "base64-sol/base64.sol";
+import {Base64} from "base64-sol/base64.sol"; // Facilitates encoding SVG as base64
+import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 
 contract SVGDelegate {
-    using String for uint256; // This lets you invote the Strings library on uints. Useful for converting uints to strings for display in SVGs. 
+    using Strings for uint256; // This lets you invote the Strings library on uints. Useful for converting uints to strings for display in SVGs. 
+    
     // Note: this function is marked `pure` because it does not mutate chain state. The ERC721 standard uses `view` instead (source: https://eips.ethereum.org/EIPS/eip-721).
     function tokenUri(uint256 tokenId) external pure returns (string memory) {
-        uint256 id = tokenId; // do something with me
+        uint256 id = tokenId;
         string[] memory parts = new string[](4);
         parts[0] = string("data:application/json;base64,");
         parts[1] = string(
@@ -29,10 +31,12 @@ contract SVGDelegate {
             )
         );
         parts[3] = string('"}');
+
         string memory uri = string.concat(
             parts[0],
             Base64.encode(abi.encodePacked(parts[1], parts[2], parts[3]))
         );
+        
         return uri;
     }
 }
