@@ -15,7 +15,7 @@ contract EmptyTest is Test {
         inputs[0] = "node";
         inputs[1] = "./open.js";
         inputs[2] = returnedUri;
-        bytes memory res = vm.ffi(inputs);
-        // vm.ffi(inputs);
+        // bytes memory res = vm.ffi(inputs); // Complains that res is not used
+        vm.ffi(inputs);
     }
 }
