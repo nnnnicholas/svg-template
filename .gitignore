@@ -7,7 +7,7 @@
 
 # Dependencies
 node_modules/
-# lib/
+lib/
 
 # Compiler files
 cache/
