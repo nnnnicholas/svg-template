@@ -5,7 +5,7 @@ import {Base64} from "base64-sol/base64.sol"; // Facilitates encoding SVG as bas
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 
 contract SVGDelegate {
-    using Strings for uint256; // This lets you invote the Strings library on uints. Useful for converting uints to strings for display in SVGs. 
+    using Strings for uint256; // This lets you invoke the Strings library on uints. Useful for converting uints to strings for display in SVGs. 
     
     // Note: this function is marked `pure` because it does not mutate chain state. The ERC721 standard uses `view` instead (source: https://eips.ethereum.org/EIPS/eip-721).
     function tokenUri(uint256 tokenId) external pure returns (string memory) {
@@ -23,7 +23,7 @@ contract SVGDelegate {
             abi.encodePacked(
                 '<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">'
                 ,'<rect width="1000" height="1000" fill="beige"/>'
-                ,'<circle r="50" cx="450" cy="450" fill="teal" />'
+                ,'<circle r="50" cx="450" cy="450" fill="blue" />'
                 ,'<text x="40" y="35" font-size="28px">'
                 ,'token ID ', id.toString()
                 ,'</text>'
